@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Figtree", system-ui, sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-bench: #14110e;
+  --color-panel: #1c1814;
+  --color-card: #262019;
+  --color-ink: #f4efe6;
+  --color-muted: #b7aa9a;
+  --color-line: #3c332b;
+  --color-amber: #e3924a;
+  --color-gold: #f0c27a;
+  --color-olive: #8fa878;
+}
+
+html {
+  background: var(--color-bench);
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-bench);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+::selection {
+  background: var(--color-amber);
+  color: var(--color-bench);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+}
+
+input[type="checkbox"] {
+  accent-color: var(--color-olive);
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: 0.2rem;
+  flex: none;
+}
+
+.kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.field {
+  width: 100%;
+  border: 1px solid var(--color-line);
+  background: var(--color-bench);
+  color: var(--color-ink);
+  padding: 0.7rem 0.8rem;
+}
+
+textarea.field {
+  resize: vertical;
+  min-height: 7.5rem;
+  line-height: 1.5;
+}
+
+.btn,
+.btn-quiet,
+.btn-olive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.55rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.btn {
+  border: 1px solid var(--color-amber);
+  background: var(--color-amber);
+  color: var(--color-bench);
+}
+
+.btn-olive {
+  border: 1px solid var(--color-olive);
+  background: var(--color-olive);
+  color: var(--color-bench);
+}
+
+.btn-quiet {
+  border: 1px solid var(--color-line);
+  background: transparent;
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+.btn-quiet[aria-pressed="true"] {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.btn:disabled,
+.btn-quiet:disabled,
+.btn-olive:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn-text {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--color-muted);
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+  cursor: pointer;
+}
+
+.btn-text:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.sheet {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.sheet th {
+  padding: 0.35rem 0.75rem 0.35rem 0;
+  color: var(--color-muted);
+  font-weight: 500;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sheet td {
+  padding: 0.8rem 0.75rem 0.8rem 0;
+  border-top: 1px solid var(--color-line);
+  vertical-align: top;
+}
+
+.day-mark {
+  width: 100%;
+  min-height: 2.75rem;
+  border: 1px solid var(--color-line);
+  background: transparent;
+  color: var(--color-muted);
+  padding: 0.35rem 0.15rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.day-mark-done {
+  border-color: var(--color-olive);
+  background: color-mix(in srgb, var(--color-olive) 24%, transparent);
+  color: var(--color-ink);
+}
+
+.day-mark-today {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  box-shadow: inset 0 0 0 1px var(--color-gold);
+}
+
+.day-mark-today.day-mark-done {
+  background: color-mix(in srgb, var(--color-olive) 32%, transparent);
+}
+
+.day-mark:hover:not(:disabled) {
+  border-color: var(--color-gold);
+}
+
+.day-mark:disabled,
+.day-mark-future {
+  cursor: not-allowed;
+  opacity: 0.38;
+  box-shadow: none;
+}
+
+.brand-desktop,
+.brand-mobile {
+  color: var(--color-ink);
+  font-family: var(--font-serif);
+  line-height: 1;
+  text-decoration: none;
+}
+
+.brand-desktop {
+  padding: 2rem 1.5rem 0;
+  font-size: 2.25rem;
+}
+
+.brand-mobile {
+  font-size: 1.5rem;
+}
+
+.nav-link,
+.nav-mobile {
+  display: block;
+  text-decoration: none;
+}
+
+.nav-link {
+  border-left: 2px solid transparent;
+  padding: 0.65rem 1rem;
+  font-size: 1.125rem;
+}
+
+.nav-mobile {
+  padding: 0.8rem 0.2rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.nav-link-current {
+  border-left-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.nav-mobile-current {
+  color: var(--color-gold);
+}
+
+.nav-idle {
+  color: var(--color-muted);
+}
+
+.nav-idle:hover {
+  color: var(--color-ink);
+}
