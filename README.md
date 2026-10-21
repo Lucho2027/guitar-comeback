@@ -45,7 +45,7 @@ Send the `session` cookie on later requests.
 
 ## Web app
 
-Run the web app from `web/` on port 5175. It proxies `/api` to `http://127.0.0.1:8090`. Start the API first, then open `http://127.0.0.1:5175`.
+Run the web app from `web/` on port 5175. It listens on the Tailscale address and proxies `/api` to `http://127.0.0.1:8090`. Start the API first, then open `http://omarchy-agent-lenovo.tail3148da.ts.net:5175/login` from any device on the tailnet.
 
 ## Tests
 
