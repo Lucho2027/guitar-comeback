@@ -3,11 +3,7 @@ import { Show, type ParentProps } from "solid-js";
 import { AuthProvider, useAuth } from "./auth";
 import Shell from "./components/Shell";
 import Login from "./pages/Login";
-import Plan from "./pages/Plan";
-import Songs from "./pages/Songs";
-import Tempo from "./pages/Tempo";
-import Today from "./pages/Today";
-import Tone from "./pages/Tone";
+import Workstation from "./pages/Workstation";
 
 function Gate(props: ParentProps) {
   const auth = useAuth();
@@ -16,7 +12,7 @@ function Gate(props: ParentProps) {
       when={auth.status() !== "unknown"}
       fallback={
         <p class="grid min-h-screen place-items-center bg-bench font-display text-2xl text-muted">
-          Opening the bench.
+          Opening the plan.
         </p>
       }
     >
@@ -25,7 +21,7 @@ function Gate(props: ParentProps) {
         fallback={
           <div class="grid min-h-screen place-items-center bg-bench px-6 text-center">
             <div class="max-w-sm">
-              <p role="alert" class="text-amber">
+              <p role="alert" class="text-alert">
                 {auth.loadError()}
               </p>
               <button type="button" class="btn mt-6" onClick={() => void auth.retry()}>
@@ -54,11 +50,8 @@ export default function App() {
     <Router root={Root}>
       <Route path="/login" component={Login} />
       <Route path="/" component={Shell}>
-        <Route path="/" component={Today} />
-        <Route path="/plan" component={Plan} />
-        <Route path="/songs" component={Songs} />
-        <Route path="/tempo" component={Tempo} />
-        <Route path="/tone" component={Tone} />
+        <Route path="/" component={Workstation} />
+        <Route path="/*" component={Workstation} />
       </Route>
     </Router>
   );

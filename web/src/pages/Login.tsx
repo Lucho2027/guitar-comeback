@@ -35,11 +35,11 @@ function LoginForm() {
   }
 
   return (
-    <main class="min-h-screen bg-bench px-6 py-16 text-ink md:px-16 md:py-24">
-      <form class="max-w-md" onSubmit={(event) => void onSubmit(event)}>
+    <main class="grid min-h-screen place-items-center bg-bench px-5 py-12 text-ink">
+      <form class="panel w-full max-w-md" onSubmit={(event) => void onSubmit(event)}>
         <p class="kicker">Comeback</p>
-        <h1 class="mt-4 font-display text-6xl leading-none md:text-7xl">Eight weeks.</h1>
-        <p class="mt-4 text-lg text-muted">Come back to the guitar you already play.</p>
+        <h1 class="mt-3 font-display text-5xl leading-none">Eight weeks.</h1>
+        <p class="mt-3 text-muted">Come back to the guitar you already play.</p>
 
         <div class="mt-10">
           <label for="email" class="block text-sm text-muted">
@@ -76,7 +76,7 @@ function LoginForm() {
         </div>
 
         <Show when={error()}>
-          <p role="alert" class="mt-5 text-amber">
+          <p role="alert" class="mt-5 text-alert">
             {error()}
           </p>
         </Show>
