@@ -15,7 +15,7 @@ function Gate(props: ParentProps) {
     <Show
       when={auth.status() !== "unknown"}
       fallback={
-        <p class="grid min-h-screen place-items-center bg-bench font-serif text-2xl text-muted">
+        <p class="grid min-h-screen place-items-center bg-bench font-display text-2xl text-muted">
           Opening the bench.
         </p>
       }

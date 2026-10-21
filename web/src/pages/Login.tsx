@@ -38,7 +38,7 @@ function LoginForm() {
     <main class="min-h-screen bg-bench px-6 py-16 text-ink md:px-16 md:py-24">
       <form class="max-w-md" onSubmit={(event) => void onSubmit(event)}>
         <p class="kicker">Comeback</p>
-        <h1 class="mt-4 font-serif text-6xl leading-none md:text-7xl">Eight weeks.</h1>
+        <h1 class="mt-4 font-display text-6xl leading-none md:text-7xl">Eight weeks.</h1>
         <p class="mt-4 text-lg text-muted">Come back to the guitar you already play.</p>
 
         <div class="mt-10">

@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Figtree", system-ui, sans-serif;
-  --font-serif: "Instrument Serif", Georgia, serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-sans: "Barlow", "Segoe UI", sans-serif;
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-mono: "Martian Mono", ui-monospace, monospace;
 
   --color-bench: #14110e;
   --color-panel: #1c1814;
@@ -55,8 +55,10 @@ input[type="checkbox"] {
 }
 
 .kicker {
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-gold);
 }
@@ -195,10 +197,17 @@ textarea.field {
   box-shadow: none;
 }
 
+.font-display {
+  font-weight: 600;
+  letter-spacing: 0.015em;
+}
+
 .brand-desktop,
 .brand-mobile {
   color: var(--color-ink);
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.02em;
   line-height: 1;
   text-decoration: none;
 }

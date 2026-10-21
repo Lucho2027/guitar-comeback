@@ -108,7 +108,7 @@ function SongsView(props: { plan: Accessor<Plan | null>; replaceSong: (song: Son
     <article>
       <header>
         <p class="kicker">Repertoire</p>
-        <h1 class="mt-3 font-serif text-5xl leading-none">Songs</h1>
+        <h1 class="mt-3 font-display text-5xl leading-none">Songs</h1>
       </header>
 
       <Show when={songs().length === 0}>
@@ -128,7 +128,7 @@ function SongsView(props: { plan: Accessor<Plan | null>; replaceSong: (song: Son
               <Show when={song().in_current_block}>
                 <p class="kicker">This block</p>
               </Show>
-              <h2 class="mt-2 font-serif text-4xl leading-none">{song().title}</h2>
+              <h2 class="mt-2 font-display text-4xl leading-none">{song().title}</h2>
               <p class="mt-3 text-lg text-muted">{song().artist}</p>
               <dl class="mt-5 space-y-2">
                 <div class="grid grid-cols-[5.5rem_1fr] gap-3">

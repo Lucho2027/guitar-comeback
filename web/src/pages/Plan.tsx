@@ -120,12 +120,12 @@ function PlanView(props: { plan: Accessor<Plan | null>; reload: () => Promise<vo
     <article>
       <header>
         <p class="kicker">Eight weeks</p>
-        <h1 class="mt-3 font-serif text-5xl leading-none">The plan</h1>
+        <h1 class="mt-3 font-display text-5xl leading-none">The plan</h1>
         <Show when={data().not_started}>
-          <p class="mt-4 font-serif text-2xl text-gold">The plan has not started.</p>
+          <p class="mt-4 font-display text-2xl text-gold">The plan has not started.</p>
         </Show>
         <Show when={data().plan_complete}>
-          <p class="mt-4 max-w-xl font-serif text-2xl leading-snug text-gold">
+          <p class="mt-4 max-w-xl font-display text-2xl leading-snug text-gold">
             The eight weeks are complete. The last phase still applies.
           </p>
         </Show>
@@ -135,8 +135,8 @@ function PlanView(props: { plan: Accessor<Plan | null>; reload: () => Promise<vo
       </header>
 
       <section class="mt-12 border-t border-line pt-8">
-        <h2 class="font-serif text-3xl">Commitment</h2>
-        <p class="mt-4 max-w-xl font-serif text-2xl leading-snug">
+        <h2 class="font-display text-3xl">Commitment</h2>
+        <p class="mt-4 max-w-xl font-display text-2xl leading-snug">
           {plural(commitment().sessions_per_week, "session")} a week, {commitment().session_minutes}{" "}
           minutes each. {plural(commitment().lighter_days, "lighter day", "lighter days")}.{" "}
           {commitment().weekly_minutes} minutes in the week.
@@ -144,7 +144,7 @@ function PlanView(props: { plan: Accessor<Plan | null>; reload: () => Promise<vo
       </section>
 
       <section class="mt-12 border-t border-line pt-8">
-        <h2 class="font-serif text-3xl">Phases</h2>
+        <h2 class="font-display text-3xl">Phases</h2>
         <ol class="mt-6">
           <For each={data().phases}>
             {(phase) => (
@@ -159,9 +159,9 @@ function PlanView(props: { plan: Accessor<Plan | null>; reload: () => Promise<vo
                   Phase {phase.number}
                   <span class="text-muted"> · {phase.weeks_label}</span>
                 </p>
-                <h3 class="mt-2 font-serif text-3xl">{phase.title}</h3>
+                <h3 class="mt-2 font-display text-3xl">{phase.title}</h3>
                 <p class="mt-3 max-w-prose leading-relaxed whitespace-pre-wrap">{phase.summary}</p>
-                <p class="mt-3 max-w-prose font-serif text-lg italic leading-snug text-muted whitespace-pre-wrap">
+                <p class="mt-3 max-w-prose text-lg leading-relaxed text-muted whitespace-pre-wrap">
                   {phase.goal}
                 </p>
               </li>
@@ -171,7 +171,7 @@ function PlanView(props: { plan: Accessor<Plan | null>; reload: () => Promise<vo
       </section>
 
       <section class="mt-12 border-t border-line pt-8">
-        <h2 class="font-serif text-3xl">Weekly schedule</h2>
+        <h2 class="font-display text-3xl">Weekly schedule</h2>
         <div class="mt-5 overflow-x-auto">
           <table class="sheet">
             <thead>
@@ -186,7 +186,7 @@ function PlanView(props: { plan: Accessor<Plan | null>; reload: () => Promise<vo
               <For each={data().schedule}>
                 {(row) => (
                   <tr>
-                    <td class="font-serif text-xl">{row.weekday}</td>
+                    <td class="font-display text-xl">{row.weekday}</td>
                     <td>{row.focus}</td>
                     <td>{row.guitar}</td>
                     <td>{kindLabel(row.kind)}</td>
@@ -199,12 +199,12 @@ function PlanView(props: { plan: Accessor<Plan | null>; reload: () => Promise<vo
       </section>
 
       <section class="mt-12 border-t border-line pt-8">
-        <h2 class="font-serif text-3xl">Influences</h2>
+        <h2 class="font-display text-3xl">Influences</h2>
         <ul class="mt-2">
           <For each={data().influences}>
             {(item) => (
               <li class="border-t border-line py-4">
-                <p class="font-serif text-2xl">{item.name}</p>
+                <p class="font-display text-2xl">{item.name}</p>
                 <p class="mt-1 max-w-prose leading-relaxed text-muted whitespace-pre-wrap">{item.detail}</p>
               </li>
             )}
@@ -213,12 +213,12 @@ function PlanView(props: { plan: Accessor<Plan | null>; reload: () => Promise<vo
       </section>
 
       <section class="mt-12 border-t border-line pt-8">
-        <h2 class="font-serif text-3xl">Guitars</h2>
+        <h2 class="font-display text-3xl">Guitars</h2>
         <ul class="mt-2">
           <For each={data().guitars}>
             {(guitar) => (
               <li class="border-t border-line py-4">
-                <p class="font-serif text-2xl">{guitar.name}</p>
+                <p class="font-display text-2xl">{guitar.name}</p>
                 <p class="mt-1 text-gold">{guitar.role}</p>
                 <p class="mt-2 max-w-prose leading-relaxed text-muted whitespace-pre-wrap">{guitar.detail}</p>
               </li>
@@ -228,13 +228,13 @@ function PlanView(props: { plan: Accessor<Plan | null>; reload: () => Promise<vo
       </section>
 
       <section class="mt-12 border-t border-line pt-8">
-        <h2 class="font-serif text-3xl">The next layer</h2>
+        <h2 class="font-display text-3xl">The next layer</h2>
         <div class="mt-2">
           <For each={data().theory}>
             {(item) => (
               <article class="border-t border-line py-5">
                 <p class="kicker">{item.weeks_label}</p>
-                <h3 class="mt-2 font-serif text-2xl">{item.title}</h3>
+                <h3 class="mt-2 font-display text-2xl">{item.title}</h3>
                 <p class="mt-2 max-w-prose leading-relaxed whitespace-pre-wrap">{item.detail}</p>
               </article>
             )}
@@ -243,7 +243,7 @@ function PlanView(props: { plan: Accessor<Plan | null>; reload: () => Promise<vo
       </section>
 
       <section class="mt-12 border-t border-line pt-8">
-        <h2 class="font-serif text-3xl">Advice</h2>
+        <h2 class="font-display text-3xl">Advice</h2>
         <ol class="mt-4 list-decimal space-y-3 pl-5">
           <For each={data().advice}>
             {(line) => <li class="leading-relaxed whitespace-pre-wrap">{line}</li>}
@@ -252,7 +252,7 @@ function PlanView(props: { plan: Accessor<Plan | null>; reload: () => Promise<vo
       </section>
 
       <section class="mt-12 border-t border-line pt-8">
-        <h2 class="font-serif text-3xl">Recordings</h2>
+        <h2 class="font-display text-3xl">Recordings</h2>
         <div class="mt-5">
           <label for="baseline-note" class="text-sm text-muted">
             Baseline solo (week 1)
@@ -282,7 +282,7 @@ function PlanView(props: { plan: Accessor<Plan | null>; reload: () => Promise<vo
       </section>
 
       <section class="mt-12 border-t border-line pt-8">
-        <h2 class="font-serif text-3xl">Start</h2>
+        <h2 class="font-display text-3xl">Start</h2>
         <p class="mt-3 max-w-prose text-muted">
           The plan snaps this date to Monday.
           <Show when={dateInputValue(data().started_on)}>
@@ -303,14 +303,14 @@ function PlanView(props: { plan: Accessor<Plan | null>; reload: () => Promise<vo
       </section>
 
       <section class="mt-12 border-t border-line pt-8">
-        <h2 class="font-serif text-3xl">Consistency</h2>
+        <h2 class="font-display text-3xl">Consistency</h2>
         <p class="mt-3 text-sm text-muted">Tap a day that already happened. Future days stay closed.</p>
         <ol class="mt-6 space-y-6">
           <For each={data().weeks}>
             {(week) => (
               <li class="border-l-4 pl-4" classList={{ "border-gold": week.current, "border-line": !week.current }}>
                 <div class="flex items-baseline justify-between gap-3">
-                  <h3 class="font-serif text-2xl">
+                  <h3 class="font-display text-2xl">
                     Week {week.number}
                     <Show when={week.current}>
                       <span class="ml-3 text-base text-gold">This week</span>

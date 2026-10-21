@@ -88,7 +88,7 @@ function ToneView(props: {
     <article>
       <header>
         <p class="kicker">Presets</p>
-        <h1 class="mt-3 font-serif text-5xl leading-none">Tone</h1>
+        <h1 class="mt-3 font-display text-5xl leading-none">Tone</h1>
       </header>
 
       <Show when={presets().length === 0}>
@@ -99,7 +99,7 @@ function ToneView(props: {
         <Index each={presets()}>
           {(preset) => (
             <article class="border-l-4 border-line bg-card px-5 py-6">
-              <h2 class="font-serif text-4xl leading-none">{preset().name}</h2>
+              <h2 class="font-display text-4xl leading-none">{preset().name}</h2>
               <p class="mt-3 text-gold">{preset().guitar}</p>
               <p class="mt-3 max-w-prose leading-relaxed whitespace-pre-wrap">{preset().character}</p>
               <label class="mt-5 flex items-center gap-3">
@@ -115,7 +115,7 @@ function ToneView(props: {
         </Index>
       </div>
 
-      <p class="mt-12 max-w-prose font-serif text-2xl italic leading-snug text-muted">
+      <p class="mt-12 max-w-prose text-lg leading-relaxed text-muted">
         Once the presets are dialed in, spend the time playing.
       </p>
 

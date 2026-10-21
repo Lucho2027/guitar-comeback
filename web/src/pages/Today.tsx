@@ -132,17 +132,17 @@ function TodayView(props: { home: Accessor<Home | null>; reload: () => Promise<v
     <article>
       <header>
         <Show when={data().not_started}>
-          <p class="font-serif text-3xl text-gold">The plan has not started.</p>
+          <p class="font-display text-3xl text-gold">The plan has not started.</p>
         </Show>
         <Show when={data().plan_complete}>
-          <p class="max-w-xl font-serif text-3xl leading-snug text-gold">
+          <p class="max-w-xl font-display text-3xl leading-snug text-gold">
             The eight weeks are complete. The last phase still applies.
           </p>
         </Show>
         <p class="kicker" classList={{ "mt-8": data().not_started || data().plan_complete }}>
           {data().phase.weeks_label}
         </p>
-        <h1 class="mt-3 font-serif text-5xl leading-none md:text-6xl">{data().day.weekday}</h1>
+        <h1 class="mt-3 font-display text-5xl leading-none md:text-6xl">{data().day.weekday}</h1>
         <p class="mt-4 font-mono text-sm text-muted">{data().today}</p>
         <p class="mt-4 text-lg">
           <Show when={!data().not_started}>
@@ -152,14 +152,14 @@ function TodayView(props: { home: Accessor<Home | null>; reload: () => Promise<v
           {data().phase.title}
         </p>
         <Show when={data().phase.goal}>
-          <p class="mt-3 max-w-xl font-serif text-xl italic leading-snug text-muted">
+          <p class="mt-3 max-w-xl text-lg leading-relaxed text-muted">
             {data().phase.goal}
           </p>
         </Show>
       </header>
 
       <section class="mt-12 border-t border-line pt-8">
-        <h2 class="font-serif text-3xl">Today's assignment</h2>
+        <h2 class="font-display text-3xl">Today's assignment</h2>
         <dl class="mt-5 space-y-3">
           <div class="grid grid-cols-[6.5rem_1fr] gap-3">
             <dt class="text-muted">Weekday</dt>
@@ -182,7 +182,7 @@ function TodayView(props: { home: Accessor<Home | null>; reload: () => Promise<v
 
       <section class="mt-12 border-t border-line pt-8">
         <div class="flex flex-wrap items-end justify-between gap-4">
-          <h2 class="font-serif text-3xl">This week</h2>
+          <h2 class="font-display text-3xl">This week</h2>
           <div class="text-sm text-muted">
             <p>
               <span class="font-mono text-base text-gold">{data().main_done}</span>
@@ -219,7 +219,7 @@ function TodayView(props: { home: Accessor<Home | null>; reload: () => Promise<v
           fallback={
             <>
               <div class="flex flex-wrap items-end justify-between gap-3">
-                <h2 class="font-serif text-3xl">The session</h2>
+                <h2 class="font-display text-3xl">The session</h2>
                 <p class="font-mono text-lg text-gold">
                   {checked()} / {minuteTarget()} min
                 </p>
@@ -280,7 +280,7 @@ function TodayView(props: { home: Accessor<Home | null>; reload: () => Promise<v
             </>
           }
         >
-          <h2 class="font-serif text-3xl">Sunday</h2>
+          <h2 class="font-display text-3xl">Sunday</h2>
           <div class="mt-5 flex flex-wrap gap-3">
             <button
               type="button"

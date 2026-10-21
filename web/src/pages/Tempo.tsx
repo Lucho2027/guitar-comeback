@@ -68,7 +68,7 @@ function TempoView(props: {
     <article>
       <header>
         <p class="kicker">Planner</p>
-        <h1 class="mt-3 font-serif text-5xl leading-none">Tempo</h1>
+        <h1 class="mt-3 font-display text-5xl leading-none">Tempo</h1>
       </header>
 
       <figure class="mt-12">
@@ -88,7 +88,7 @@ function TempoView(props: {
       </div>
 
       <section class="mt-12 border-t border-line pt-8">
-        <h2 class="font-serif text-3xl">Clean repetitions</h2>
+        <h2 class="font-display text-3xl">Clean repetitions</h2>
         <p class="mt-3 font-mono text-2xl">
           {data().clean_reps} / 3
         </p>
@@ -122,7 +122,7 @@ function TempoView(props: {
       </Show>
 
       <Show when={data().note}>
-        <p class="mt-12 max-w-prose font-serif text-2xl italic leading-snug whitespace-pre-wrap text-muted">
+        <p class="mt-12 max-w-prose text-lg leading-relaxed whitespace-pre-wrap text-muted">
           {data().note}
         </p>
       </Show>
