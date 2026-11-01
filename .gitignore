@@ -2,3 +2,10 @@ bin/
 .env
 web/node_modules/
 web/dist/
+
+# Software factory: runtime state written by /factory, plus the builders' worktrees.
+factory/board.json
+factory/jobs/
+.worktrees/
+factory/dashboard/node_modules/
+factory/dashboard/dist/

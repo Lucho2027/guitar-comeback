@@ -1,0 +1,21 @@
+{
+  "jobs": [
+    { "id": "001-practice-streak", "title": "Show the practice streak", "branch": "factory/001-practice-streak",
+      "stage": "merged", "round": 2, "resumes": 1,
+      "reviews": { "security": "PASS", "ux": "PASS", "ui": "PASS", "code": "PASS" },
+      "history": [ { "security": "PASS", "ux": "CHANGES", "ui": "PASS", "code": "PASS" } ],
+      "decision": "APPROVE", "note": "", "updated": "2026-11-01T10:34:56Z" },
+    { "id": "002-csv-export", "title": "CSV export of practice logs", "branch": "factory/002-csv-export",
+      "stage": "needs-human", "round": 1, "resumes": 0,
+      "reviews": { "security": "PASS", "ux": "PASS", "ui": "PASS", "code": "PASS" },
+      "history": [],
+      "decision": "ESCALATE", "note": "Export includes private recording notes; confirm they belong in the CSV.", "updated": "2026-11-01T12:09:56Z" },
+    { "id": "003-rate-limiting", "title": "Rate-limit login attempts", "branch": "factory/003-rate-limiting",
+      "stage": "review", "round": 2, "resumes": 1,
+      "reviews": { "security": "CHANGES", "ux": "PASS", "ui": "pending", "code": "PASS" },
+      "history": [ { "security": "CHANGES", "ux": "PASS", "ui": "PASS", "code": "CHANGES" } ],
+      "decision": null, "note": "", "updated": "2026-11-01T12:34:16Z" },
+    { "id": "004-tempo-presets", "title": "Tempo presets per song", "branch": "factory/004-tempo-presets",
+      "stage": "spec", "round": 0, "resumes": 0, "decision": null, "note": "", "updated": "2026-11-01T12:34:48Z" }
+  ]
+}
