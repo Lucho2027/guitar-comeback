@@ -14,7 +14,7 @@ folder you're pointed at, and any `<job>/rework-*.md`. Act on every `VERDICT: CH
 - Add tests for every acceptance criterion that can be automated.
 - Run every check in `repo.md` from the worktree (`cd web && npm ci` first if you touch `web/`).
   Don't stop with a failing check.
-- Commit to the branch in repo style (one imperative sentence ending with a period). Several small commits are fine.
+- Commit to the branch using the repo's commit style from `repo.md` (Conventional Commits). Several small commits are fine.
 - Never merge, push, rebase onto Base, or edit files outside the worktree, except for `build.md`.
 
 **Write** `<job>/build.md` (the only factory file you own). On the first build, create it. On each resume, append a
@@ -25,7 +25,7 @@ folder you're pointed at, and any `<job>/rework-*.md`. Act on every `VERDICT: CH
 Branch: factory/<job-id> · Worktree: <path>
 
 ## Round 1
-Commits: <sha> <subject>, …
+Commits: <sha> feat(scope): summary, …
 Changes: a few bullets on what changed and where.
 | AC | Status | Evidence |
 |----|--------|----------|

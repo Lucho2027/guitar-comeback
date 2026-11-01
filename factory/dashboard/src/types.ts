@@ -21,3 +21,20 @@ export interface JobFile {
   path: string;
   text: string;
 }
+
+export type PreviewState = "stopped" | "installing" | "starting" | "running" | "failed";
+
+// One runnable version of the app: main, or a job's worktree branch.
+export interface Version {
+  id: string;
+  branch: string;
+  sha: string;
+  subject: string;
+  committed: string;
+  ahead: number;
+  webPort: number;
+  apiPort: number;
+  state: PreviewState;
+  external: boolean;
+  log?: string;
+}

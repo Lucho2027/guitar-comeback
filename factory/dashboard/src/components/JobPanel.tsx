@@ -1,4 +1,6 @@
+import { A } from "@solidjs/router";
 import { createEffect, createResource, createSignal, For, onCleanup, onMount, Show } from "solid-js";
+import { useFactory } from "../factory";
 import { fetchJob, fileGroup, fileLabel, splitVerdict } from "../files";
 import { jobNumber, jobTitle, STAGES } from "../stages";
 import type { Job } from "../types";
@@ -6,6 +8,7 @@ import Markdown from "./Markdown";
 
 // Side panel with the job's markdown files, in loop order. Refetches whenever the board updates the job.
 export default function JobPanel(props: { job: Job; onClose: () => void }) {
+  const f = useFactory();
   const [files] = createResource(() => [props.job.id, props.job.updated] as const, ([id]) => fetchJob(id));
   const [picked, setPicked] = createSignal<string>();
   let closeBtn: HTMLButtonElement | undefined;
@@ -46,6 +49,11 @@ export default function JobPanel(props: { job: Job; onClose: () => void }) {
             </Show>
             <Show when={props.job.note}>
               <p class="panel-note">{props.job.note}</p>
+            </Show>
+            <Show when={f.version(props.job.id)}>
+              <A class="btn btn-primary panel-preview" href={`/view/${props.job.id}`}>
+                Preview this branch →
+              </A>
             </Show>
           </div>
           <button ref={closeBtn} type="button" class="close" onClick={() => props.onClose()} aria-label="Close">

@@ -5,15 +5,25 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"errors"
+	"os"
+	"strings"
 	"time"
 
 	"golang.org/x/crypto/bcrypt"
 )
 
-const (
-	CookieName = "session"
-	SessionTTL = 30 * 24 * time.Hour
-)
+const SessionTTL = 30 * 24 * time.Hour
+
+// CookieName is "session" unless SESSION_COOKIE is set. Factory previews run one
+// API per branch on the same host, and cookies ignore ports, so each gets its own name.
+var CookieName = cookieName()
+
+func cookieName() string {
+	if v := strings.TrimSpace(os.Getenv("SESSION_COOKIE")); v != "" {
+		return v
+	}
+	return "session"
+}
 
 func HashPassword(password string) (string, error) {
 	hash, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)

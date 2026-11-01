@@ -2,6 +2,7 @@
   "name": "guitar-comeback",
   "private": true,
   "scripts": {
+    "stack": "FACTORY_AUTOSTART=main npm run factory-dashboard",
     "factory-dashboard": "npm --prefix factory/dashboard install --no-audit --no-fund --silent && npm --prefix factory/dashboard run serve",
     "factory-dashboard:demo": "FACTORY_DEMO=1 npm run factory-dashboard"
   }

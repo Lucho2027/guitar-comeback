@@ -119,7 +119,7 @@ Then continue from step 6 with the next round number.
 ### Merge
 1. Find the checkout that has BASE: `git worktree list --porcelain`, then take the `worktree` line before `branch refs/heads/BASE`.
    If BASE isn't checked out anywhere, run `git -C WT switch BASE` and use WT.
-2. In that checkout, run `git merge --no-ff factory/<job-id> -m "Merge factory/<job-id>: <title>."`.
+2. In that checkout, run `git merge --no-ff factory/<job-id> -m "chore(factory): merge <job-id> (<title>)"`.
    On a conflict or failure, run `git merge --abort` and go to **Needs human** with the git error as the note.
 3. Run `git worktree remove WT` (unless WT is the merge checkout) and `git branch -d factory/<job-id>`.
 4. Update the board to `stage: merged`. Never push.

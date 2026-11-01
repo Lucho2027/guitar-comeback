@@ -35,11 +35,13 @@ cd web && npm ci && npm run typecheck && npm run build   # whenever web/ changed
   `line`, `amber` lime accent, `olive` mint, `alert`). Fonts are Barlow, Barlow Condensed (`font-display`),
   and Martian Mono. Don't add new colors or fonts outside the theme. Use semantic buttons and links, visible
   `:focus-visible`, and `role="alert"` for errors, and make it work at 375px wide.
-- **Commits**: one imperative sentence ending with a period, without prefixes, for example
-  `Bind the practice tracker to the Tailscale address.` Add a short prose body explaining why when useful.
+- **Commits**: Conventional Commits, `type(scope): summary`. Use a lowercase imperative summary with no
+  trailing period. The types are `feat`, `fix`, `refactor`, `test`, `docs`, `style`, and `chore`, and the scope
+  is the area touched (`api`, `auth`, `store`, `plan`, `web`). For example, `feat(auth): rate-limit failed logins`.
+  Add a short prose body explaining why when useful.
 
 ## Do not
 
-- Touch `.env`, change `vite.config.ts` host or port bindings, or start another Postgres.
+- Touch `.env`, change `vite.config.ts` host or port bindings (factory previews depend on `WEB_PORT` and `API_PORT`), rename `SESSION_COOKIE`, or start another Postgres.
 - Kill or rebind running dev servers (API on `:8090`, web on `:5175`). Use other ports if you need to run something.
 - Edit anything under `factory/` or `.claude/` (factory state belongs to the orchestrator).

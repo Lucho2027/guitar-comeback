@@ -13,7 +13,7 @@ You are one of four parallel reviewers for a factory job. The prompt gives you `
 - Correctness: edge cases, error handling, dates and time zones (`internal/plan`), and transactions in `internal/store`.
 - Tests: every automatable acceptance criterion has a test that would fail without the change.
 - You are the only reviewer who runs checks. Rerun every check in `repo.md` in the worktree, but skip `npm ci` because the builder already installed. A failing check is always CHANGES, even if `build.md` says it passed.
-- Conventions: handler, `writeJSON`, and `slog` patterns, gofmt, TS strict without `any` escapes, and commit message style.
+- Conventions: handler, `writeJSON`, and `slog` patterns, gofmt, TS strict without `any` escapes, and Conventional Commits messages.
 - Simplicity: no dead code, no speculative abstractions, and no changes outside the spec's scope.
 
 **Write** only `<round folder>/review-code.md`. The first line is exactly `VERDICT: PASS` or `VERDICT: CHANGES`:

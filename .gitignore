@@ -7,5 +7,6 @@ web/dist/
 factory/board.json
 factory/jobs/
 .worktrees/
+.previews/
 factory/dashboard/node_modules/
 factory/dashboard/dist/
