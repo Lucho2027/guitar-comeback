@@ -1,27 +1,24 @@
 import { A } from "@solidjs/router";
-import { createEffect, createResource, createSignal, For, onCleanup, onMount, Show } from "solid-js";
+import { For, onCleanup, onMount, Show } from "solid-js";
 import { useFactory } from "../factory";
-import { fetchJob, fileGroup, fileLabel, splitVerdict } from "../files";
+import type { PanelTab } from "../jobPanel";
 import { jobNumber, jobTitle, STAGES } from "../stages";
 import type { Job } from "../types";
-import Markdown from "./Markdown";
+import EventList from "./EventList";
+import JobChanges from "./JobChanges";
+import JobFiles from "./JobFiles";
+import Working from "./Working";
 
-// Side panel with the job's markdown files, in loop order. Refetches whenever the board updates the job.
-export default function JobPanel(props: { job: Job; onClose: () => void }) {
+const TABS: { key: PanelTab; label: string }[] = [
+  { key: "files", label: "Files" },
+  { key: "changes", label: "Changes" },
+  { key: "activity", label: "Activity" },
+];
+
+// Side panel for one job: its markdown files, its code changes, and its activity.
+export default function JobPanel(props: { job: Job; tab: PanelTab; onTab: (t: PanelTab) => void; onClose: () => void }) {
   const f = useFactory();
-  const [files] = createResource(() => [props.job.id, props.job.updated] as const, ([id]) => fetchJob(id));
-  const [picked, setPicked] = createSignal<string>();
   let closeBtn: HTMLButtonElement | undefined;
-
-  // Default to the newest file; keep the user's pick while it exists.
-  const current = () => {
-    const list = files.latest ?? [];
-    return list.find((f) => f.path === picked()) ?? list[list.length - 1];
-  };
-  createEffect(() => {
-    props.job.id;
-    setPicked(undefined);
-  });
 
   const onKey = (e: KeyboardEvent) => e.key === "Escape" && props.onClose();
   onMount(() => {
@@ -31,7 +28,7 @@ export default function JobPanel(props: { job: Job; onClose: () => void }) {
   onCleanup(() => document.removeEventListener("keydown", onKey));
 
   const stageLabel = () => STAGES.find((s) => s.key === props.job.stage)?.label ?? props.job.stage;
-  const doc = () => splitVerdict(current()?.text ?? "");
+  const events = () => f.events().filter((e) => e.job === props.job.id);
 
   return (
     <>
@@ -47,6 +44,7 @@ export default function JobPanel(props: { job: Job; onClose: () => void }) {
             <Show when={props.job.branch}>
               <p class="card-branch">{props.job.branch}</p>
             </Show>
+            <Working job={props.job} />
             <Show when={props.job.note}>
               <p class="panel-note">{props.job.note}</p>
             </Show>
@@ -60,48 +58,36 @@ export default function JobPanel(props: { job: Job; onClose: () => void }) {
             ✕
           </button>
         </header>
-        <div class="panel-body">
-          <nav class="files" aria-label="Job files">
-            <For each={files.latest ?? []}>
-              {(f, i) => {
-                const group = () => fileGroup(f.path);
-                const prev = () => (i() > 0 ? fileGroup((files.latest ?? [])[i() - 1].path) : "");
-                const verdict = () => splitVerdict(f.text).verdict;
-                return (
-                  <>
-                    <Show when={group() && group() !== prev()}>
-                      <p class="files-group">{group()}</p>
-                    </Show>
-                    <button
-                      type="button"
-                      class="file"
-                      classList={{ "file-on": current()?.path === f.path, "file-nested": !!group() }}
-                      aria-current={current()?.path === f.path ? "page" : undefined}
-                      onClick={() => setPicked(f.path)}
-                    >
-                      <Show when={verdict()}>{(v) => <span class={`dot dot-${v().toLowerCase()}`} />}</Show>
-                      {fileLabel(f.path)}
-                    </button>
-                  </>
-                );
-              }}
-            </For>
-          </nav>
-          <article class="doc">
-            <Show when={files.error}>
-              <p class="doc-empty" role="alert">
-                {(files.error as Error).message}
-              </p>
-            </Show>
-            <Show when={current()} fallback={<Show when={!files.loading}><p class="doc-empty">No files yet.</p></Show>}>
-              <p class="doc-path">{current()!.path}</p>
-              <Show when={doc().verdict}>
-                {(v) => <p class={`badge badge-lg badge-${v().toLowerCase()}`}>{v()}</p>}
-              </Show>
-              <Markdown text={doc().body} />
-            </Show>
-          </article>
+        <div class="tabs" role="tablist" aria-label="Job views">
+          <For each={TABS}>
+            {(t) => (
+              <button
+                type="button"
+                role="tab"
+                class="tab"
+                aria-selected={props.tab === t.key}
+                classList={{ "tab-on": props.tab === t.key }}
+                onClick={() => props.onTab(t.key)}
+              >
+                {t.label}
+                <Show when={t.key === "activity" && events().length}>
+                  <span class="tab-count">{events().length}</span>
+                </Show>
+              </button>
+            )}
+          </For>
         </div>
+        <Show when={props.tab === "files"}>
+          <JobFiles job={props.job} />
+        </Show>
+        <Show when={props.tab === "changes"}>
+          <JobChanges job={props.job} />
+        </Show>
+        <Show when={props.tab === "activity"}>
+          <div class="panel-scroll">
+            <EventList events={events()} empty="No activity logged for this job yet." />
+          </div>
+        </Show>
       </aside>
     </>
   );

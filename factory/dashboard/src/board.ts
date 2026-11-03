@@ -51,3 +51,17 @@ export function ago(iso: string | number | undefined) {
   if (s < 86400) return `${Math.floor(s / 3600)}h ago`;
   return `${Math.floor(s / 86400)}d ago`;
 }
+
+// "4m", "2h", "3d": how long since iso.
+export function since(iso: string | undefined) {
+  if (!iso) return "";
+  const t = Date.parse(iso);
+  if (Number.isNaN(t)) return "";
+  const m = Math.max(0, Math.floor((now() - t) / 60000));
+  if (m < 1) return "<1m";
+  if (m < 60) return `${m}m`;
+  if (m < 1440) return `${Math.floor(m / 60)}h`;
+  return `${Math.floor(m / 1440)}d`;
+}
+
+export const minutesSince = (iso: string | undefined) => (iso ? (now() - Date.parse(iso)) / 60000 : Infinity);

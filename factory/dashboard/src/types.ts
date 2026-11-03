@@ -38,3 +38,40 @@ export interface Version {
   external: boolean;
   log?: string;
 }
+
+// One line of factory/activity.jsonl (see server/activity.ts).
+export interface ActivityEvent {
+  at: string;
+  job: string;
+  kind: "start" | "done" | "stage" | "human";
+  agent?: string;
+  text: string;
+}
+
+export interface Commit {
+  sha: string;
+  subject: string;
+  at: string;
+  author: string;
+}
+
+// A job's code changes (see server/changes.ts).
+export interface Changes {
+  source: "branch" | "merged" | "none";
+  branch: string;
+  base: string;
+  commits: Commit[];
+  files: { path: string; added: number | null; removed: number | null }[];
+  diff: string;
+  truncated: boolean;
+  behind?: number;
+  mergeable?: boolean | null;
+  uncommitted?: number;
+  merge?: Commit;
+}
+
+export interface BacklogItem {
+  text: string;
+  done: boolean;
+  job?: string;
+}

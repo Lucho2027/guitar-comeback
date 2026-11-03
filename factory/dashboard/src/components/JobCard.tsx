@@ -3,6 +3,7 @@ import { ago } from "../board";
 import { isActive, jobNumber, jobTitle } from "../stages";
 import type { Job } from "../types";
 import RoundChips from "./RoundChips";
+import Working from "./Working";
 
 export default function JobCard(props: { job: Job; selected: boolean; onOpen: (el: HTMLElement) => void }) {
   const history = () => props.job.history ?? [];
@@ -44,6 +45,7 @@ export default function JobCard(props: { job: Job; selected: boolean; onOpen: (e
       <Show when={props.job.note}>
         <span class="card-note">{props.job.note}</span>
       </Show>
+      <Working job={props.job} compact />
       <span class="card-foot">{ago(props.job.updated)}</span>
     </button>
   );

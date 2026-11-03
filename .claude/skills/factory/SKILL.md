@@ -67,10 +67,25 @@ valid (`jq . factory/board.json >/dev/null`). Each job has these fields:
 - `reviews` holds the current round. When a new round starts, push the old `reviews` onto `history`.
 - `note` is a one-line reason for anything a human should know, required for `needs-human`.
 
+## Activity log
+
+The dashboard's Activity page, and the "working now" line on each card, read `factory/activity.jsonl`.
+Append to it **only** with `factory/log-event.sh <job-id> <kind> <agent|-> "<text>"`:
+
+| when | kind | agent | text, for example |
+|---|---|---|---|
+| a human command starts work on a job | `human` | `-` | `/factory next`, `/factory approve`, `/factory rework: <note>` |
+| right before you spawn or resume an agent | `start` | `spec-writer`, `builder`, `reviewer-security`, … , `approver` | `round 2`, `resume after round 1`, `rework-1` |
+| when that agent returns | `done` | the same name | `spec.md written`, `3 commits`, `VERDICT: CHANGES`, `APPROVE: <reason>`, `failed: <why>` |
+| every `stage` change on the board | `stage` | `-` | `build`, `review round 2`, `merged as <sha>`, `needs human: <note>` |
+
+Every `start` needs a matching `done`, even when the agent fails. Otherwise the dashboard shows it working forever.
+
 ## Commands
 
 Start every command by `cd`-ing to ROOT and checking that BASE exists (`git rev-parse --verify BASE`).
 If it doesn't exist, stop and ask the user which branch to use. Don't create it unasked.
+Log to the activity log as you go, alongside every board update.
 
 ### `/factory <feature>` — new job
 1. **Job id**: take the next 3-digit number after the highest one in `factory/jobs/`, then a 2–4 word kebab slug

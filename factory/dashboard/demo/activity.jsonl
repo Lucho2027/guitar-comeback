@@ -1,0 +1,78 @@
+{"at": "2026-11-01T09:58:02Z", "job": "001-practice-streak", "kind": "human", "text": "/factory next"}
+{"at": "2026-11-01T09:58:05Z", "job": "001-practice-streak", "kind": "start", "agent": "spec-writer", "text": ""}
+{"at": "2026-11-01T10:01:40Z", "job": "001-practice-streak", "kind": "done", "agent": "spec-writer", "text": "spec.md written, 3 acceptance criteria"}
+{"at": "2026-11-01T10:01:44Z", "job": "001-practice-streak", "kind": "stage", "text": "build"}
+{"at": "2026-11-01T10:01:46Z", "job": "001-practice-streak", "kind": "start", "agent": "builder", "text": "round 1"}
+{"at": "2026-11-01T10:12:10Z", "job": "001-practice-streak", "kind": "done", "agent": "builder", "text": "2 commits"}
+{"at": "2026-11-01T10:12:12Z", "job": "001-practice-streak", "kind": "stage", "text": "review round 1"}
+{"at": "2026-11-01T10:12:14Z", "job": "001-practice-streak", "kind": "start", "agent": "reviewer-security", "text": "round 1"}
+{"at": "2026-11-01T10:12:14Z", "job": "001-practice-streak", "kind": "start", "agent": "reviewer-ux", "text": "round 1"}
+{"at": "2026-11-01T10:12:14Z", "job": "001-practice-streak", "kind": "start", "agent": "reviewer-ui", "text": "round 1"}
+{"at": "2026-11-01T10:12:14Z", "job": "001-practice-streak", "kind": "start", "agent": "reviewer-code", "text": "round 1"}
+{"at": "2026-11-01T10:15:01Z", "job": "001-practice-streak", "kind": "done", "agent": "reviewer-security", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T10:16:30Z", "job": "001-practice-streak", "kind": "done", "agent": "reviewer-code", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T10:17:02Z", "job": "001-practice-streak", "kind": "done", "agent": "reviewer-ui", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T10:17:45Z", "job": "001-practice-streak", "kind": "done", "agent": "reviewer-ux", "text": "VERDICT: CHANGES"}
+{"at": "2026-11-01T10:17:47Z", "job": "001-practice-streak", "kind": "stage", "text": "build"}
+{"at": "2026-11-01T10:17:48Z", "job": "001-practice-streak", "kind": "start", "agent": "builder", "text": "resume after round 1"}
+{"at": "2026-11-01T10:24:30Z", "job": "001-practice-streak", "kind": "done", "agent": "builder", "text": "1 commit"}
+{"at": "2026-11-01T10:24:32Z", "job": "001-practice-streak", "kind": "stage", "text": "review round 2"}
+{"at": "2026-11-01T10:24:34Z", "job": "001-practice-streak", "kind": "start", "agent": "reviewer-security", "text": "round 2"}
+{"at": "2026-11-01T10:24:34Z", "job": "001-practice-streak", "kind": "start", "agent": "reviewer-ux", "text": "round 2"}
+{"at": "2026-11-01T10:24:34Z", "job": "001-practice-streak", "kind": "start", "agent": "reviewer-ui", "text": "round 2"}
+{"at": "2026-11-01T10:24:34Z", "job": "001-practice-streak", "kind": "start", "agent": "reviewer-code", "text": "round 2"}
+{"at": "2026-11-01T10:26:10Z", "job": "001-practice-streak", "kind": "done", "agent": "reviewer-ui", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T10:26:40Z", "job": "001-practice-streak", "kind": "done", "agent": "reviewer-ux", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T10:28:05Z", "job": "001-practice-streak", "kind": "done", "agent": "reviewer-code", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T10:29:12Z", "job": "001-practice-streak", "kind": "done", "agent": "reviewer-security", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T10:29:14Z", "job": "001-practice-streak", "kind": "stage", "text": "approval"}
+{"at": "2026-11-01T10:29:15Z", "job": "001-practice-streak", "kind": "start", "agent": "approver", "text": ""}
+{"at": "2026-11-01T10:34:50Z", "job": "001-practice-streak", "kind": "done", "agent": "approver", "text": "APPROVE: all criteria met, checks green"}
+{"at": "2026-11-01T10:34:56Z", "job": "001-practice-streak", "kind": "stage", "text": "merged as 9c41e2a"}
+{"at": "2026-11-01T11:20:00Z", "job": "002-csv-export", "kind": "human", "text": "/factory Add a CSV export of all practice day logs"}
+{"at": "2026-11-01T11:20:03Z", "job": "002-csv-export", "kind": "start", "agent": "spec-writer", "text": ""}
+{"at": "2026-11-01T11:24:12Z", "job": "002-csv-export", "kind": "done", "agent": "spec-writer", "text": "spec.md written, 2 acceptance criteria"}
+{"at": "2026-11-01T11:24:15Z", "job": "002-csv-export", "kind": "stage", "text": "build"}
+{"at": "2026-11-01T11:24:16Z", "job": "002-csv-export", "kind": "start", "agent": "builder", "text": "round 1"}
+{"at": "2026-11-01T11:30:00Z", "job": "003-rate-limiting", "kind": "human", "text": "/factory next"}
+{"at": "2026-11-01T11:30:02Z", "job": "003-rate-limiting", "kind": "start", "agent": "spec-writer", "text": ""}
+{"at": "2026-11-01T11:34:30Z", "job": "003-rate-limiting", "kind": "done", "agent": "spec-writer", "text": "spec.md written, 4 acceptance criteria"}
+{"at": "2026-11-01T11:34:33Z", "job": "003-rate-limiting", "kind": "stage", "text": "build"}
+{"at": "2026-11-01T11:34:35Z", "job": "003-rate-limiting", "kind": "start", "agent": "builder", "text": "round 1"}
+{"at": "2026-11-01T11:49:30Z", "job": "002-csv-export", "kind": "done", "agent": "builder", "text": "3 commits"}
+{"at": "2026-11-01T11:49:32Z", "job": "002-csv-export", "kind": "stage", "text": "review round 1"}
+{"at": "2026-11-01T11:49:34Z", "job": "002-csv-export", "kind": "start", "agent": "reviewer-security", "text": "round 1"}
+{"at": "2026-11-01T11:49:34Z", "job": "002-csv-export", "kind": "start", "agent": "reviewer-ux", "text": "round 1"}
+{"at": "2026-11-01T11:49:34Z", "job": "002-csv-export", "kind": "start", "agent": "reviewer-ui", "text": "round 1"}
+{"at": "2026-11-01T11:49:34Z", "job": "002-csv-export", "kind": "start", "agent": "reviewer-code", "text": "round 1"}
+{"at": "2026-11-01T11:52:01Z", "job": "002-csv-export", "kind": "done", "agent": "reviewer-ux", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T11:52:40Z", "job": "002-csv-export", "kind": "done", "agent": "reviewer-ui", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T11:55:12Z", "job": "002-csv-export", "kind": "done", "agent": "reviewer-code", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T11:58:30Z", "job": "002-csv-export", "kind": "done", "agent": "reviewer-security", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T11:58:32Z", "job": "002-csv-export", "kind": "stage", "text": "approval"}
+{"at": "2026-11-01T11:58:33Z", "job": "002-csv-export", "kind": "start", "agent": "approver", "text": ""}
+{"at": "2026-11-01T12:02:10Z", "job": "003-rate-limiting", "kind": "done", "agent": "builder", "text": "2 commits"}
+{"at": "2026-11-01T12:02:12Z", "job": "003-rate-limiting", "kind": "stage", "text": "review round 1"}
+{"at": "2026-11-01T12:02:14Z", "job": "003-rate-limiting", "kind": "start", "agent": "reviewer-security", "text": "round 1"}
+{"at": "2026-11-01T12:02:14Z", "job": "003-rate-limiting", "kind": "start", "agent": "reviewer-ux", "text": "round 1"}
+{"at": "2026-11-01T12:02:14Z", "job": "003-rate-limiting", "kind": "start", "agent": "reviewer-ui", "text": "round 1"}
+{"at": "2026-11-01T12:02:14Z", "job": "003-rate-limiting", "kind": "start", "agent": "reviewer-code", "text": "round 1"}
+{"at": "2026-11-01T12:05:00Z", "job": "003-rate-limiting", "kind": "done", "agent": "reviewer-ux", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T12:05:30Z", "job": "003-rate-limiting", "kind": "done", "agent": "reviewer-ui", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T12:08:10Z", "job": "003-rate-limiting", "kind": "done", "agent": "reviewer-code", "text": "VERDICT: CHANGES"}
+{"at": "2026-11-01T12:09:50Z", "job": "002-csv-export", "kind": "done", "agent": "approver", "text": "ESCALATE: Export includes private recording notes; confirm they belong in the CSV."}
+{"at": "2026-11-01T12:09:56Z", "job": "002-csv-export", "kind": "stage", "text": "needs human: Export includes private recording notes; confirm they belong in the CSV."}
+{"at": "2026-11-01T12:11:45Z", "job": "003-rate-limiting", "kind": "done", "agent": "reviewer-security", "text": "VERDICT: CHANGES"}
+{"at": "2026-11-01T12:11:47Z", "job": "003-rate-limiting", "kind": "stage", "text": "build"}
+{"at": "2026-11-01T12:11:48Z", "job": "003-rate-limiting", "kind": "start", "agent": "builder", "text": "resume after round 1"}
+{"at": "2026-11-01T12:25:02Z", "job": "003-rate-limiting", "kind": "done", "agent": "builder", "text": "2 commits"}
+{"at": "2026-11-01T12:25:04Z", "job": "003-rate-limiting", "kind": "stage", "text": "review round 2"}
+{"at": "2026-11-01T12:25:06Z", "job": "003-rate-limiting", "kind": "start", "agent": "reviewer-security", "text": "round 2"}
+{"at": "2026-11-01T12:25:06Z", "job": "003-rate-limiting", "kind": "start", "agent": "reviewer-ux", "text": "round 2"}
+{"at": "2026-11-01T12:25:06Z", "job": "003-rate-limiting", "kind": "start", "agent": "reviewer-ui", "text": "round 2"}
+{"at": "2026-11-01T12:25:06Z", "job": "003-rate-limiting", "kind": "start", "agent": "reviewer-code", "text": "round 2"}
+{"at": "2026-11-01T12:27:00Z", "job": "003-rate-limiting", "kind": "done", "agent": "reviewer-ux", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T12:30:20Z", "job": "003-rate-limiting", "kind": "done", "agent": "reviewer-code", "text": "VERDICT: PASS"}
+{"at": "2026-11-01T12:34:16Z", "job": "003-rate-limiting", "kind": "done", "agent": "reviewer-security", "text": "VERDICT: CHANGES"}
+{"at": "2026-11-01T12:34:40Z", "job": "004-tempo-presets", "kind": "human", "text": "/factory Tempo presets per song"}
+{"at": "2026-11-01T12:34:48Z", "job": "004-tempo-presets", "kind": "start", "agent": "spec-writer", "text": ""}

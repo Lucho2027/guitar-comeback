@@ -5,6 +5,7 @@ web/dist/
 
 # Software factory: runtime state written by /factory, plus the builders' worktrees.
 factory/board.json
+factory/activity.jsonl
 factory/jobs/
 .worktrees/
 .previews/
